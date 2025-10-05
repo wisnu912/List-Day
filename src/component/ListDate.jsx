@@ -8,6 +8,7 @@ const ListDate = ({ Jam }) => {
         <thead className="bg-gray-200">
           <tr>
             <th className="px-4 py-2 border border-gray-300">No</th>
+            <th className="px-4 py-2 border border-gray-300">Shift</th>
             <th className="px-4 py-2 border border-gray-300">Jam Masuk</th>
             <th className="px-4 py-2 border border-gray-300">Jam Pulang</th>
           </tr>
@@ -16,7 +17,7 @@ const ListDate = ({ Jam }) => {
           {Jam.length === 0 ? (
             <tr>
               <td
-                colSpan="3"
+                colSpan="4"
                 className="text-center px-4 py-3 text-gray-500"
               >
                 Belum ada data
@@ -29,24 +30,27 @@ const ListDate = ({ Jam }) => {
                   {index + 1}
                 </td>
                 <td className="px-4 py-2 border border-gray-300">
-                {new Date(item.jamMasuk).toLocaleString("id-ID", {
-                    weekday: "long", // Senin, Selasa, ...
+                  {item.shifName}
+                </td>
+                <td className="px-4 py-2 border border-gray-300">
+                  {new Date(item.jamMasuk).toLocaleString("id-ID", {
+                    weekday: "long",
                     day: "2-digit",
-                    month: "long",   // Januari, Februari, ...
+                    month: "long",
                     year: "numeric",
                     hour: "2-digit",
                     minute: "2-digit",
-                })}
+                  })}
                 </td>
                 <td className="px-4 py-2 border border-gray-300">
-                            {new Date(item.jamPulang).toLocaleString("id-ID", {
-                weekday: "long",
-                day: "2-digit",
-                month: "long",
-                year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-  })}
+                  {new Date(item.jamPulang).toLocaleString("id-ID", {
+                    weekday: "long",
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
                 </td>
               </tr>
             ))

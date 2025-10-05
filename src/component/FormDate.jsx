@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import { use } from "react";
 
 const FormDate = ({ Add }) => {
   const [showForm, setShowForm] = useState(false);
   const [jamMasuk, setJamMasuk] = useState("");
   const [jamPulang, setJamPulang] = useState("");
+  const [shifName , setShif] = useState("");
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-    Add(jamMasuk, jamPulang);
+    Add(jamMasuk, jamPulang , shifName);
     setJamMasuk(""); // reset form
     setJamPulang("");
+    setShif("")
     setShowForm(false); // tutup form setelah submit
   };
 
@@ -26,7 +29,27 @@ const FormDate = ({ Add }) => {
             onSubmit={HandleSubmit}
             className="max-w-md mx-auto bg-white w-full mt-10 p-6 rounded-2xl shadow-lg"
           >
+            
             <div className="mb-5">
+              <label
+                htmlFor="shif"
+                className="block mb-2 text-sm font-medium text-gray-700"
+              >
+                Shif Name
+              </label>
+              <input
+                type="text"
+                id="jamMasuk"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+                           focus:ring-blue-500 focus:border-blue-500 block w-full
+                           p-3 transition duration-200"
+                required
+                value={shifName}
+                onChange={(e) => setShif(e.target.value)}
+              />
+            </div>
+
+             <div className="mb-5">
               <label
                 htmlFor="jamMasuk"
                 className="block mb-2 text-sm font-medium text-gray-700"

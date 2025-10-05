@@ -9,8 +9,8 @@ function App() {
 
 
 
-const Addjam = (jamMasuk, jamPulang) => {
-  const newDate = { jamMasuk, jamPulang, id: Date.now() };
+const Addjam = (jamMasuk, jamPulang , shifName) => {
+  const newDate = { jamMasuk, jamPulang, shifName ,  id: Date.now() };
   SetJam([...Jam, newDate]); 
 };
 
